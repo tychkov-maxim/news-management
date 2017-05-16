@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    <!-- <form-beans>
+         <form-bean name="helloWorldForm" type="com.epam.tm.news.HelloWorldForm"/>
+     </form-beans>
+ -->
+
+
+    <action-mappings>
+        <action path="/hello" type="com.epam.tm.news.action.StartPageAction">
+            <forward name="startPage" path="/WEB-INF/view/index.jsp"/>
+        </action>
+    </action-mappings>
+
+
+    <controller processorClass="org.springframework.web.struts.DelegatingTilesRequestProcessor"/>
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin"/>
+
+    <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+        <set-property property="contextConfigLocation"
+                      value=" classpath:config.xml, /WEB-INF/struts-servlet.xml"/>
+    </plug-in>
+
+
+</struts-config>

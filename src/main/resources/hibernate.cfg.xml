@@ -4,7 +4,15 @@
 
 <hibernate-configuration>
     <session-factory>
+
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+
         <property name="connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+
+        <property name="hibernate.connection.username">FORTASKS</property>
+        <property name="hibernate.connection.password">HelloWorld</property>
+
 
         <property name="connection.pool_size">1</property>
         <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
