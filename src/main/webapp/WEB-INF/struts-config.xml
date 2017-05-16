@@ -20,11 +20,13 @@
 
     <controller processorClass="org.springframework.web.struts.DelegatingTilesRequestProcessor"/>
 
-    <plug-in className="org.apache.struts.tiles.TilesPlugin"/>
-
     <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
         <set-property property="contextConfigLocation"
                       value=" classpath:config.xml, /WEB-INF/struts-servlet.xml"/>
+    </plug-in>
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property value="/WEB-INF/tiles-defs.xml" property="definitions-config"/>
     </plug-in>
 
 
