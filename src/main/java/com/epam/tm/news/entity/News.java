@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Time;
 
 @Entity
-@Table(name = "NEWS", schema = "FORTASKS")
+@Table(name = "NEWS")
 public class News extends BaseEntity{
     private String title;
     private Time date;
@@ -12,6 +12,7 @@ public class News extends BaseEntity{
     private String content;
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "ID", nullable = false, precision = 0)
     public long getId() {
         return id;
@@ -32,7 +33,7 @@ public class News extends BaseEntity{
     }
 
     @Basic
-    @Column(name = "date", nullable = false)
+    @Column(name = "dateApp", nullable = false)
     public Time getDate() {
         return date;
     }
@@ -61,4 +62,11 @@ public class News extends BaseEntity{
         this.content = content;
     }
 
+    @Override
+    public String toString() {
+        return "News{" +
+                "title='" + title + '\'' +
+                ", date=" + date +
+                '}';
+    }
 }

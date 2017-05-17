@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.epam.tm.news.entity.News" table="NEWS" schema="FORTASKS">
+        <id name="id">
+            <column name="ID" sql-type="number(*)" precision="2147483646"/>
+        </id>
+        <property name="title">
+            <column name="TITLE" sql-type="varchar2(64)" length="64"/>
+        </property>
+        <property name="date">
+            <column name="date" sql-type="date"/>
+        </property>
+        <property name="brief">
+            <column name="BRIEF" sql-type="varchar2(512)" length="512" not-null="true"/>
+        </property>
+        <property name="content">
+            <column name="CONTENT" sql-type="varchar2(2048)" length="2048" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
