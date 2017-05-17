@@ -1,0 +1,33 @@
+package com.epam.tm.news.service;
+
+import com.epam.tm.news.dao.NewsDao;
+import com.epam.tm.news.entity.News;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@Service
+@Transactional
+public class NewsService {
+
+    @Autowired
+    private NewsDao newsDao;
+
+    public List<News> getAllNewsByDate(){
+           return newsDao.getAllNewsOrderByDate();
+    }
+
+    public void deleteNewsById(News news){
+        newsDao.delete(news);
+    }
+
+    public News getNewsById(long id){
+        return newsDao.findById(id);
+    }
+
+    public News saveNews(News news){
+        return newsDao.save(news);
+    }
+}

@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-@Transactional
 public class HibernateNewsDao extends HibernateDao<News> implements NewsDao {
 
     @Override

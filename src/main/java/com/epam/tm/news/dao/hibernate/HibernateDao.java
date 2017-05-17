@@ -20,4 +20,5 @@ public abstract class HibernateDao<T extends BaseEntity> implements Dao<T> {
     public void delete(T entity) {
         sessionFactory.getCurrentSession().delete(entity);
     }
+
 }
