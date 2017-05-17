@@ -20,11 +20,11 @@ public class NewsService {
     }
 
     public void deleteNewsById(News news){
-        newsDao.delete(news);
+        newsDao.remove(news);
     }
 
     public News getNewsById(long id){
-        return newsDao.findById(id);
+        return newsDao.fetchById(id);
     }
 
     public News saveNews(News news){

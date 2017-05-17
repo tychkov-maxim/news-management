@@ -7,7 +7,7 @@ import java.util.List;
 public interface Dao <T extends BaseEntity> {
     T save(T entity);
 
-    T findById(long id);
+    T fetchById(long id);
 
-    void delete(T entity);
+    void remove(T entity);
 }

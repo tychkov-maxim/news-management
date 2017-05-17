@@ -17,7 +17,7 @@ public abstract class HibernateDao<T extends BaseEntity> implements Dao<T> {
     }
 
     @Override
-    public void delete(T entity) {
+    public void remove(T entity) {
         sessionFactory.getCurrentSession().delete(entity);
     }
 

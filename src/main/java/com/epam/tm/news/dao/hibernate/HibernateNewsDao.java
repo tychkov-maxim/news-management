@@ -12,7 +12,7 @@ import java.util.List;
 public class HibernateNewsDao extends HibernateDao<News> implements NewsDao {
 
     @Override
-    public News findById(long id) {
+    public News fetchById(long id) {
         return sessionFactory.getCurrentSession().get(News.class,id);
     }
 
