@@ -12,9 +12,7 @@
 
 
     <action-mappings>
-        <action path="/hello" type="com.epam.tm.news.action.StartPageAction">
-            <forward name="startPage" path="/WEB-INF/view/index.jsp"/>
-        </action>
+        <action path="/welcome" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/view/index.jsp"/>
     </action-mappings>
 
 
