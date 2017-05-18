@@ -20,20 +20,11 @@
         </configuration>
       </facet>
     </facet>
-    <facet type="hibernate" name="Hibernate">
-      <configuration>
-        <datasource-map>
-          <unit-entry name="a.xml" value="ea2a9694-ba00-4830-9714-3d9e5613990e" />
-          <unit-entry name="sessionFactory" value="ea2a9694-ba00-4830-9714-3d9e5613990e" />
-        </datasource-map>
-        <naming-strategy-map />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
-      </configuration>
-    </facet>
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/struts-servlet.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -49,6 +40,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="struts-struts" level="project" />
+    <orderEntry type="library" name="ojdbc6" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.struts:struts-taglib:1.3.10" level="project" />
     <orderEntry type="library" name="Maven: org.apache.struts:struts-core:1.3.10" level="project" />
@@ -86,6 +78,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.3.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.3.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.3.5.RELEASE" level="project" />
-    <orderEntry type="library" name="ojdbc6" level="project" />
+    <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
+    <orderEntry type="library" name="struts-struts (2)" level="project" />
   </component>
 </module>

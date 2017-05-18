@@ -5,24 +5,34 @@
         "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 
 <struts-config>
-    <!-- <form-beans>
-         <form-bean name="helloWorldForm" type="com.epam.tm.news.HelloWorldForm"/>
-     </form-beans>
- -->
+
+    <form-beans>
+        <form-bean name="newsForm" type="com.epam.tm.news.form.NewsForm"/>
+    </form-beans>
 
 
     <action-mappings>
-        <action path="/welcome" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/view/index.jsp"/>
+        <action path="/news"
+                type="com.epam.tm.news.action.NewsAction"
+                parameter="method"
+                name="newsForm"
+                scope="request"
+                validate="false"
+        >
+            <forward name="allNews" path="/WEB-INF/view/allNews.jsp"/>
+            <forward name="show" path="/WEB-INF/view/news.jsp"/>
+            <forward name="edit" path="/WEB-INF/view/editNews.jsp"/>
+        </action>
     </action-mappings>
 
 
     <controller processorClass="org.springframework.web.struts.DelegatingTilesRequestProcessor"/>
 
+
     <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
         <set-property property="contextConfigLocation"
                       value=" classpath:config.xml, /WEB-INF/struts-servlet.xml"/>
     </plug-in>
-
     <plug-in className="org.apache.struts.tiles.TilesPlugin">
         <set-property value="/WEB-INF/tiles-defs.xml" property="definitions-config"/>
     </plug-in>
