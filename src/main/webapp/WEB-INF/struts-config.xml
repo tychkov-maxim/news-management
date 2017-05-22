@@ -19,9 +19,10 @@
                 scope="request"
                 validate="false"
         >
-            <forward name="allNews" path="/WEB-INF/view/tiles/allNews.jsp"/>
+            <forward name="allNews" path="/WEB-INF/view/allNews.jsp"/>
             <forward name="show" path="/WEB-INF/view/news.jsp"/>
             <forward name="edit" path="/WEB-INF/view/editNews.jsp"/>
+            <forward name="addNews" path="/WEB-INF/view/editNews.jsp"/>
         </action>
     </action-mappings>
 

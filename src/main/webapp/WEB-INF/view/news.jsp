@@ -4,5 +4,10 @@
 <%@ taglib  uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic"%>
 
 
-<bean:write name="newsForm" property="news"/>
-Edit Delete
+<tiles:insert page="tiles/layout.jsp" flush="true">
+    <tiles:put name="title" value="All news" />
+    <tiles:put name="header" value="header.jsp" />
+    <tiles:put name="menu" value="menu.jsp" />
+    <tiles:put name="body" value="news-info-body.jsp" />
+    <tiles:put name="footer" value="footer.jsp" />
+</tiles:insert>

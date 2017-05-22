@@ -1,2 +1,2 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
-footer
+EPAM SYSTEMS 2017

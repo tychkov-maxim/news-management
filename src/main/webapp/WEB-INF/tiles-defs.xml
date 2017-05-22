@@ -5,9 +5,37 @@
         "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
 
 <tiles-definitions>
-    <definition name="news" template="view/tiles/layout.jsp">
-        <put name="header" value="view/tiles/header.jsp"/>
-        <put name="menu" value="view/tiles/menu.jsp"/>
-        <put name="footer" value="view/tiles/footer.jsp"/>
+    <definition name="allNews" template="view/tiles/layout.jsp">
+        <put name="title" value="All News"/>
+        <put name="body" value="all-news-body.jsp"/>
+        <put name="header" value="header.jsp"/>
+        <put name="menu" value="menu.jsp"/>
+        <put name="footer" value="footer.jsp"/>
     </definition>
+
+    <definition name="news" template="view/tiles/layout.jsp">
+        <put name="title" value="All News"/>
+        <put name="body" value="news-info-body.jsp"/>
+        <put name="header" value="header.jsp"/>
+        <put name="menu" value="menu.jsp"/>
+        <put name="footer" value="footer.jsp"/>
+    </definition>
+
+    <definition name="edit" template="view/tiles/layout.jsp">
+        <put name="title" value="All News"/>
+        <put name="body" value="news-edit-body.jsp"/>
+        <put name="header" value="header.jsp"/>
+        <put name="menu" value="menu.jsp"/>
+        <put name="footer" value="footer.jsp"/>
+    </definition>
+
+    <definition name="addNews" template="view/tiles/layout.jsp">
+        <put name="title" value="All News"/>
+        <put name="body" value="news-edit-body.jsp"/>
+        <put name="header" value="header.jsp"/>
+        <put name="menu" value="menu.jsp"/>
+        <put name="footer" value="footer.jsp"/>
+    </definition>
+
+
 </tiles-definitions>

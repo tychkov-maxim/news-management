@@ -4,6 +4,6 @@
     <tiles:put name="title" value="All news" />
     <tiles:put name="header" value="header.jsp" />
     <tiles:put name="menu" value="menu.jsp" />
-    <tiles:put name="body" value="news-edit-body.jsp" />
+    <tiles:put name="body" value="all-news-body.jsp" />
     <tiles:put name="footer" value="footer.jsp" />
 </tiles:insert>
