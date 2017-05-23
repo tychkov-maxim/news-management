@@ -24,7 +24,9 @@
     </tr>
 </table>
     <html:submit value="Save"/>
-    <html:reset value="Cancel"/>
+    <html:button property="news" onclick="javascript:history.back()">
+        Cancel
+    </html:button>
 </html:form>
 
 

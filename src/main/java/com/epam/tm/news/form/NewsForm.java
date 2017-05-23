@@ -2,8 +2,11 @@ package com.epam.tm.news.form;
 
 import com.epam.tm.news.entity.News;
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class NewsForm extends ActionForm {
@@ -48,4 +51,12 @@ public class NewsForm extends ActionForm {
         this.allNews = allNews;
     }
 
+    @Override
+    public void reset(ActionMapping mapping, HttpServletRequest request) {
+        String currentDate = new Date().toString();
+        setDateString(currentDate);
+        news.setTitle("");
+        news.setBrief("");
+        news.setContent("");
+    }
 }

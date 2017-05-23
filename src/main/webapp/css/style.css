@@ -1,9 +1,9 @@
-.header{
+.header {
     min-height: 15vh;
     border: solid 2px;
 }
 
-.body{
+.body {
     min-height: 70vh;
     border: groove;
     padding: 3%;
@@ -11,24 +11,25 @@
     margin-bottom: 2px;
 }
 
-.ourmenu{
+.ourmenu {
     margin-top: 1%;
 }
 
-footer{
+footer {
     min-height: 10vh;
     border: solid 2px;
 }
 
 table {
     width: 100%;
+    table-layout: fixed;
 }
 
-td,tr {
+td, tr {
     text-align: left;
     padding-bottom: 3%;
+    word-wrap:break-word;
 }
-
 .menu {
     width: 220px;
     height: 120px;

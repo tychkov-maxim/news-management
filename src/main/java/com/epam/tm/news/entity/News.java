@@ -1,13 +1,13 @@
 package com.epam.tm.news.entity;
 
 import javax.persistence.*;
-import java.sql.Time;
+import java.util.Date;
 
 @Entity
 @Table(name = "NEWS")
 public class News extends BaseEntity{
     private String title;
-    private Time date;
+    private Date date;
     private String brief;
     private String content;
 
@@ -34,11 +34,11 @@ public class News extends BaseEntity{
 
     @Basic
     @Column(name = "dateApp", nullable = false)
-    public Time getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Time date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
