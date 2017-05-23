@@ -17,26 +17,39 @@
                 parameter="method"
                 name="newsForm"
                 scope="request"
-                validate="false"
+                validate="true"
+                input="/WEB-INF/view/editNews.jsp"
         >
             <forward name="allNews" path="/WEB-INF/view/allNews.jsp"/>
             <forward name="show" path="/WEB-INF/view/news.jsp"/>
             <forward name="edit" path="/WEB-INF/view/editNews.jsp"/>
             <forward name="addNews" path="/WEB-INF/view/editNews.jsp"/>
         </action>
+
+        <action path="/locale"
+                type="com.epam.tm.news.action.LocaleAction">
+            <forward name="allNewsRedirect" path="/news.do?method=allNews"/>
+        </action>
     </action-mappings>
 
-    <message-resources parameter="i18n"/>
+
 
     <controller processorClass="org.springframework.web.struts.DelegatingTilesRequestProcessor"/>
 
+    <message-resources parameter="i18n"/>
 
     <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
         <set-property property="contextConfigLocation"
                       value=" classpath:config.xml, /WEB-INF/struts-servlet.xml"/>
     </plug-in>
+
     <plug-in className="org.apache.struts.tiles.TilesPlugin">
         <set-property value="/WEB-INF/tiles-defs.xml" property="definitions-config"/>
+    </plug-in>
+
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validation.xml"
+                      property="pathnames"/>
     </plug-in>
 
 

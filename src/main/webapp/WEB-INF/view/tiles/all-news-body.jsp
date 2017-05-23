@@ -10,11 +10,11 @@
 
 <logic:iterate id="news" property="allNews" name="newsForm">
 
-
+    <html:errors/>
     <table id="allNews">
         <tr>
             <td style="width: 90%">${news.title}</td>
-            <td style="width: 10%;"><bean:write name="news" property="date" format="dd-MM-yyyy"/></td>
+            <td style="width: 10%;"><bean:write name="news" property="date" format="dd/MM/yyyy"/></td>
         </tr>
         <tr>
             <td>

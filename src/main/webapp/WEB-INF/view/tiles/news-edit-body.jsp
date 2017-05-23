@@ -5,6 +5,7 @@
 <%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
 
 <html:form action="/news.do?method=add">
+    <html:errors/>
 <table>
     <tr>
         <td style="width: 20%">News Title</td>

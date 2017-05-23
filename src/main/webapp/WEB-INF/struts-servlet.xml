@@ -4,5 +4,6 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean name="/news" class="com.epam.tm.news.action.NewsAction"/>
+    <bean name="/locale" class="com.epam.tm.news.action.LocaleAction"/>
 
 </beans>

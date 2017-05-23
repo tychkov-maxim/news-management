@@ -1,15 +1,15 @@
 package com.epam.tm.news.form;
 
 import com.epam.tm.news.entity.News;
-import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.validator.ValidatorForm;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class NewsForm extends ActionForm {
+public class NewsForm extends ValidatorForm {
 
     private News news = new News();
     private List<News> allNews = new ArrayList<>();
