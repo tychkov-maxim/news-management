@@ -6,11 +6,15 @@
 
 
 <logic:notEmpty name="newsForm" property="allNews">
-<html:form action="/news.do?method=delete">
+<html:form action="/deleteList.do">
 
 <logic:iterate id="news" property="allNews" name="newsForm">
 
     <html:errors/>
+    <html:hidden property="news.title" value="pass_validation"/>
+    <html:hidden property="news.brief" value="pass_validation"/>
+    <html:hidden property="news.content" value="pass_validation"/>
+
     <table id="allNews">
         <tr>
             <td style="width: 90%">${news.title}</td>
@@ -24,8 +28,8 @@
         <tr>
             <td></td>
             <td>
-                <html:link action="/news.do?method=show&id=${news.id}">view</html:link>
-                <html:link action="/news.do?method=edit&id=${news.id}">edit</html:link>
+                <html:link action="/news.do?method=show&id=${news.id}"><bean:message key="view"/></html:link>
+                <html:link action="/news.do?method=edit&id=${news.id}"><bean:message key="edit"/></html:link>
                 <html:multibox property="selectedNewsId" name="newsForm" value="${news.id}"/>
             </td>
         </tr>
@@ -34,10 +38,10 @@
 
 
 </logic:iterate>
-<html:submit value="Delete"/>
+    <html:submit><bean:message key="delete"/> </html:submit>
 </html:form>
 </logic:notEmpty>
 
 <logic:empty name="newsForm" property="allNews">
-    Sorry, It's empty!
+    <bean:message key="sorry.empty"/>
 </logic:empty>

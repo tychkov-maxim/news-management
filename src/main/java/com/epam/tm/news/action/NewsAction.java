@@ -11,17 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.epam.tm.news.constant.ConstantHolder.*;
+
 public class NewsAction extends DispatchAction {
 
-    private static final String ALL_NEWS_FORWARD = "allNews";
-    private static final String SHOW_FORWARD = "show";
-    private static final String EDIT_FORWARD = "edit";
-
-    private static final String ID = "id";
 
     @Autowired
     private NewsService newsService;
@@ -38,7 +34,8 @@ public class NewsAction extends DispatchAction {
 
     public ActionForward show(ActionMapping mapping, ActionForm form,
                               HttpServletRequest request, HttpServletResponse response) throws Exception {
-        setNewsByIdFromDB(form, request);
+        News news = setNewsByIdFromDB(form, request);
+        request.setAttribute(NEWS_ATTRIBUTE,news);
         return mapping.findForward(SHOW_FORWARD);
     }
 
@@ -49,32 +46,15 @@ public class NewsAction extends DispatchAction {
         return mapping.findForward(EDIT_FORWARD);
     }
 
-    public ActionForward add(ActionMapping mapping, ActionForm form,
-                             HttpServletRequest request, HttpServletResponse response) throws Exception {
-        NewsForm newsForm = (NewsForm) form;
-        News news = newsForm.getNews();
-        news.setDate(new Date());
-        newsService.saveNews(news);
-        return mapping.findForward(SHOW_FORWARD);
-    }
-
-
     public ActionForward delete(ActionMapping mapping, ActionForm form,
                                 HttpServletRequest request, HttpServletResponse response) throws Exception {
         NewsForm newsForm = (NewsForm) form;
         int[] selectedNewsId = newsForm.getSelectedNewsId();
-
-        long idFromReq = getIdFromReq(request);
-
-        if (idFromReq == -1) {
-            for (int i : selectedNewsId) {
-                deleteNewsById(i);
-            }
-        } else
-            deleteNewsById(idFromReq);
-
-        newsForm.setAllNews(newsService.getAllNewsByDate());
-        return mapping.findForward(ALL_NEWS_FORWARD);
+        long idFromReq = Long.parseLong(request.getParameter(ID));
+        News news = new News();
+        news.setId(idFromReq);
+        newsService.deleteNewsById(news);
+        return mapping.findForward(ALL_NEWS_REDIRECT);
     }
 
 
@@ -86,31 +66,13 @@ public class NewsAction extends DispatchAction {
         return mapping.findForward(EDIT_FORWARD);
     }
 
-    private void setNewsByIdFromDB(ActionForm form, HttpServletRequest request) {
+    private News setNewsByIdFromDB(ActionForm form, HttpServletRequest request) {
         NewsForm newsForm = (NewsForm) form;
-        News newsById = newsService.getNewsById(getIdFromReq(request));
+        News newsById = newsService.getNewsById(Long.parseLong(request.getParameter(ID)));
         newsForm.setDateString(formatter.format(newsById.getDate()));
         newsForm.setNews(newsById);
+        return newsById;
     }
 
-    //FIXME fix it
-    private long getIdFromReq(HttpServletRequest request) {
-        String idParam = request.getParameter(ID);
-        long id;
-        if (idParam != null) {
-                id = Long.parseLong(idParam);
-        } else
-            id = -1;
-
-        return id;
-    }
-
-    private void deleteNewsById(long id) {
-        News news = new News();
-        news.setId(id);
-        news.setDate(new Time(0));
-        news.setTitle("");
-        newsService.deleteNewsById(news);
-    }
 
 }

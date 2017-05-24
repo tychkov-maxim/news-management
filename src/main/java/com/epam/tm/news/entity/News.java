@@ -1,6 +1,7 @@
 package com.epam.tm.news.entity;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.util.Date;
 
 @Entity
@@ -11,8 +12,13 @@ public class News extends BaseEntity{
     private String brief;
     private String content;
 
+    public News() {
+        title = "";
+        date = new Time(0);
+    }
+
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     @Column(name = "ID", nullable = false, precision = 0)
     public long getId() {
         return id;

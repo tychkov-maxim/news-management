@@ -5,5 +5,7 @@
 
     <bean name="/news" class="com.epam.tm.news.action.NewsAction"/>
     <bean name="/locale" class="com.epam.tm.news.action.LocaleAction"/>
+    <bean name="/deleteList" class="com.epam.tm.news.action.NewsListDeleteAction"/>
+    <bean name="/addNews" class="com.epam.tm.news.action.AddNewsAction"/>
 
 </beans>

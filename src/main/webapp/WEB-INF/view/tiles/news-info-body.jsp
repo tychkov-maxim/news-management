@@ -7,30 +7,30 @@
 
 <table>
     <tr>
-        <td style="width: 20%">News Title</td>
-        <td style="width: 80%"><bean:write name="newsForm" property="news.title"/></td>
+        <td style="width: 20%"><bean:message key="add.news.label.title"/></td>
+        <td style="width: 80%">${news.title}</td>
     </tr>
     <tr>
-        <td> News Date</td>
-        <td><bean:write name="newsForm" property="news.date" format="dd/MM/yyyy"/></td>
+        <td><bean:message key="news.date"/></td>
+        <td><bean:write name="news" property="date" format="dd/MM/yyyy"/></td>
     </tr>
     <tr>
-        <td> Brief</td>
-        <td><bean:write name="newsForm" property="news.brief"/></td>
+        <td><bean:message key="add.news.label.brief"/></td>
+        <td>${news.brief}</td>
     </tr>
     <tr>
-        <td> Content</td>
-        <td><bean:write name="newsForm" property="news.content"/></td>
+        <td><bean:message key="add.news.label.content"/></td>
+        <td>${news.content}</td>
     </tr>
     <tr>
         <td>
         </td>
         <td>
-            <html:link action="/news?method=edit&id=${newsForm.news.id}">
-                <html:submit value="edit"/>
+            <html:link action="/news?method=edit&id=${news.id}">
+                <html:submit><bean:message key="edit"/></html:submit>
             </html:link>
-            <html:link action="/news?method=delete&id=${newsForm.news.id}">
-                <html:submit value="delete"/>
+            <html:link action="/news?method=delete&id=${news.id}">
+                <html:submit><bean:message key="delete"/></html:submit>
             </html:link>
         </td>
     </tr>
