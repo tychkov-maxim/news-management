@@ -36,7 +36,8 @@
                 type="com.epam.tm.news.action.AddNewsAction"
                 name="newsForm"
                 validate="true"
-                input="/WEB-INF/view/editNews.jsp"
+                scope="request"
+                input="/news.do?method=addNews"
                 >
             <forward name="show" path="/WEB-INF/view/news.jsp"/>
         </action>
@@ -45,6 +46,7 @@
                 type="com.epam.tm.news.action.NewsListDeleteAction"
                 name="newsForm"
                 validate="true"
+                scope="request"
                 input="/news.do?method=allNews"
                 >
             <forward name="allNewsRedirect" path="/news.do?method=allNews"/>

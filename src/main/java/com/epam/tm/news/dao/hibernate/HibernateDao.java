@@ -4,6 +4,8 @@ import com.epam.tm.news.dao.Dao;
 import com.epam.tm.news.entity.BaseEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 
 public abstract class HibernateDao<T extends BaseEntity> implements Dao<T> {
 

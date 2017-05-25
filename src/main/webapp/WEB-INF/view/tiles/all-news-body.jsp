@@ -7,18 +7,16 @@
 
 <logic:notEmpty name="newsForm" property="allNews">
 <html:form action="/deleteList.do">
-
-<logic:iterate id="news" property="allNews" name="newsForm">
-
     <html:errors/>
     <html:hidden property="news.title" value="pass_validation"/>
     <html:hidden property="news.brief" value="pass_validation"/>
     <html:hidden property="news.content" value="pass_validation"/>
+<logic:iterate id="news" property="allNews" name="newsForm">
 
     <table id="allNews">
         <tr>
             <td style="width: 90%">${news.title}</td>
-            <td style="width: 10%;"><bean:write name="news" property="date" format="dd/MM/yyyy"/></td>
+            <td style="width: 10%;"><bean:write name="news" property="date" format="MM/dd/yyyy"/></td>
         </tr>
         <tr>
             <td>

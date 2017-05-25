@@ -22,7 +22,7 @@ public class NewsAction extends DispatchAction {
     @Autowired
     private NewsService newsService;
 
-    private SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    private SimpleDateFormat formatter = new SimpleDateFormat(DATE_PATTERN);
 
     public ActionForward allNews(ActionMapping mapping, ActionForm form,
                                  HttpServletRequest request, HttpServletResponse response) throws Exception {

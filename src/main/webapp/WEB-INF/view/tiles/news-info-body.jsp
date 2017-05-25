@@ -12,7 +12,7 @@
     </tr>
     <tr>
         <td><bean:message key="news.date"/></td>
-        <td><bean:write name="news" property="date" format="dd/MM/yyyy"/></td>
+        <td><bean:write name="news" property="date" format="MM/dd/yyyy"/></td>
     </tr>
     <tr>
         <td><bean:message key="add.news.label.brief"/></td>

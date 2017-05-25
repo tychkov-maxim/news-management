@@ -4,12 +4,28 @@ import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
 
+
+@NamedQueries({
+        @NamedQuery(name = "findById", query = "from News where id = :id"),
+        @NamedQuery(name = "delete", query = "delete News where id = :id"),
+        @NamedQuery(name = "getListByDate", query = "from News order by date desc"),
+})
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "insert", query = "insert into News values(NEWS_SEQ.nextval, :title, :datetime, :brief, :content)"),
+        @NamedNativeQuery(name = "update", query = "UPDATE News SET title = :title, dateapp = :datetime," +
+                "brief = :brief, content = :content WHERE id = :id"),
+        @NamedNativeQuery(name = "lastId", query = "SELECT NEWS_SEQ.currval FROM dual")
+})
 @Entity
 @Table(name = "NEWS")
 public class News extends BaseEntity{
+    @Column(name = "TITLE", nullable = false, length = 64)
     private String title;
+    @Column(name = "dateApp", nullable = false)
     private Date date;
+    @Column(name = "BRIEF", length = 512)
     private String brief;
+    @Column(name = "CONTENT", length = 2048)
     private String content;
 
     public News() {
@@ -17,9 +33,7 @@ public class News extends BaseEntity{
         date = new Time(0);
     }
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
-    @Column(name = "ID", nullable = false, precision = 0)
+
     public long getId() {
         return id;
     }
@@ -28,8 +42,6 @@ public class News extends BaseEntity{
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "TITLE", nullable = false, length = 64)
     public String getTitle() {
         return title;
     }
@@ -38,8 +50,6 @@ public class News extends BaseEntity{
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "dateApp", nullable = false)
     public Date getDate() {
         return date;
     }
@@ -49,7 +59,7 @@ public class News extends BaseEntity{
     }
 
     @Basic
-    @Column(name = "BRIEF", nullable = true, length = 512)
+
     public String getBrief() {
         return brief;
     }
@@ -58,8 +68,6 @@ public class News extends BaseEntity{
         this.brief = brief;
     }
 
-    @Basic
-    @Column(name = "CONTENT", nullable = true, length = 2048)
     public String getContent() {
         return content;
     }

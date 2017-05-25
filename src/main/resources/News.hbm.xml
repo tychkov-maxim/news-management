@@ -6,13 +6,19 @@
 
     <class name="com.epam.tm.news.entity.News" table="NEWS" schema="FORTASKS">
         <id name="id">
-            <column name="ID" sql-type="number(*)" precision="2147483646"/>
+            <column name="ID" sql-type="number(*)"/>
+                <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
+                    <param name="prefer_sequence_per_entity">true</param>
+                    <param name="optimizer">none</param>
+                    <param name="increment_size">1</param>
+                    <param name="sequence_name">NEWS_SEQ</param>
+                </generator>
         </id>
         <property name="title">
             <column name="TITLE" sql-type="varchar2(64)" length="64"/>
         </property>
         <property name="date">
-            <column name="date" sql-type="date"/>
+            <column name="DATEAPP" sql-type="date"/>
         </property>
         <property name="brief">
             <column name="BRIEF" sql-type="varchar2(512)" length="512" not-null="true"/>
@@ -21,4 +27,32 @@
             <column name="CONTENT" sql-type="varchar2(2048)" length="2048" not-null="true"/>
         </property>
     </class>
+
+    <query name="findById">
+        <![CDATA[from News where id = :id]]>
+    </query>
+
+    <query name="delete">
+        <![CDATA[delete News where id = :id]]>
+    </query>
+
+    <query name="getListByDate">
+        <![CDATA[from News order by date desc]]>
+    </query>
+
+    <sql-query name="insert">
+        <![CDATA[insert into News values(NEWS_SEQ.nextval, :title, :datetime, :brief, :content)]]>
+    </sql-query>
+
+
+    <sql-query name="update">
+        <![CDATA[UPDATE News SET title = :title, dateapp = :datetime, brief = :brief, content = :content WHERE id = :id]]>
+    </sql-query>
+
+    <sql-query name="lastId">
+        <![CDATA[SELECT NEWS_SEQ.currval FROM dual]]>
+    </sql-query>
+
+
+
 </hibernate-mapping>

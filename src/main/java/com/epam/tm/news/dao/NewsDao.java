@@ -5,5 +5,5 @@ import com.epam.tm.news.entity.News;
 import java.util.List;
 
 public interface NewsDao extends Dao<News> {
-    List<News> getAllNewsOrderByDate();
+    List getAllNewsOrderByDate();
 }

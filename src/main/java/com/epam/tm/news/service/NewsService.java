@@ -3,6 +3,7 @@ package com.epam.tm.news.service;
 import com.epam.tm.news.dao.NewsDao;
 import com.epam.tm.news.entity.News;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class NewsService {
 
     @Autowired
+    @Qualifier("HibernateNamedQueryDao")
     private NewsDao newsDao;
 
     public List<News> getAllNewsByDate(){
