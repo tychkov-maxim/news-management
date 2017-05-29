@@ -14,7 +14,7 @@ import java.util.List;
 public class NewsService {
 
     @Autowired
-    @Qualifier("HibernateNamedQueryDao")
+    @Qualifier("HibernateDao")
     private NewsDao newsDao;
 
     public List<News> getAllNewsByDate(){

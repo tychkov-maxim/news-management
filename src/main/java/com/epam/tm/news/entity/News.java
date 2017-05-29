@@ -83,4 +83,28 @@ public class News extends BaseEntity{
                 ", date=" + date +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof News)) return false;
+        if (!super.equals(o)) return false;
+
+        News news = (News) o;
+
+        if (!title.equals(news.title)) return false;
+        if (!date.equals(news.date)) return false;
+        if (!brief.equals(news.brief)) return false;
+        return content != null ? content.equals(news.content) : news.content == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + title.hashCode();
+        result = 31 * result + date.hashCode();
+        result = 31 * result + brief.hashCode();
+        result = 31 * result + (content != null ? content.hashCode() : 0);
+        return result;
+    }
 }

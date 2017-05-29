@@ -24,6 +24,7 @@ public class NewsListDeleteAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
         NewsForm newsForm = (NewsForm) form;
         int[] selectedNewsId = newsForm.getSelectedNewsId();
+        //TODO use 8 java
         for (int i : selectedNewsId) {
             News news = new News();
             news.setId(i);
